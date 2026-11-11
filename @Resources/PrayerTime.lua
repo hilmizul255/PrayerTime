@@ -25,6 +25,12 @@ function FormatPrayerTime(value)
         return value
     end
 
+    -- API time formatted as HH:MM:SS
+    local hours, minutes = string.match(value, '^(%d%d):(%d%d):%d%d$')
+    if hours and minutes then
+        return hours .. ':' .. minutes
+    end
+
     return '--:--'
 end
 
